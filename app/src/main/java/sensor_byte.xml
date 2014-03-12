@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sensor_bytes>
+    <frame_control>1</frame_control>
+    <length>1</length>
+    <message_id>1</message_id>
+    <frame_count>2</frame_count>
+    <accx>2</accx>
+    <accy>2</accy>
+    <accz>2</accz>
+    <gyrox>2</gyrox>
+    <gyroy>2</gyroy>
+    <gyroz>2</gyroz>
+    <magx>2</magx>
+    <magy>2</magy>
+    <magz>2</magz>
+    <press>2</press>
+    <temp>2</temp>
+    <altitude>8</altitude>
+    <latitude>8</latitude>
+    <longitude>8</longitude>
+</sensor_bytes>

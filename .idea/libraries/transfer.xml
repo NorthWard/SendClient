@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="transfer">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/transfer.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

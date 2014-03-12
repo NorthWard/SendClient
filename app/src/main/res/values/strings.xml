@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SendClient</string>
+    <string name="send_rate">忽略数据的间隔次数</string>
+    <string name="sure">确认</string>
+    <string name="analysis_rate">每隔多少次数据分析一次</string>
+    <string name="title_run">运行</string>
+    <string name="title_set">设置</string>
+    <string name="title_test">测试</string>
+    <string name="menu_exit">退出</string>
+    <string name="menu_stop">停止采集</string>
+</resources>
