@@ -1,25 +1,5 @@
 package com.scut.sendclient.ui;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-import com.scut.sendclient.R;
-import com.scut.sendclient.ui.llp.DeviceListActivity;
-
-import sensor.analyse.selfdefine.AvgCount;
-import sensor.analyse.selfdefine.DetectionAmplitude;
-import sensor.analyse.selfdefine.MaxNoException;
-import sensor.bluetooth.llp.BluetoothService;
-import sensor.bluetooth.llp.Utils;
-import sensor.gps.GPSLocation;
-import sensor.task.SendSensorDataTask;
-import sensor.task.SendSimpleResultTask;
-import sensor.tools.Constant;
-
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -40,6 +20,25 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.scut.sendclient.R;
+import com.scut.sendclient.ui.llp.DeviceListActivity;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import sensor.analyse.selfdefine.AvgCount;
+import sensor.analyse.selfdefine.DetectionAmplitude;
+import sensor.analyse.selfdefine.MaxNoException;
+import sensor.bluetooth.llp.BluetoothService;
+import sensor.bluetooth.llp.Utils;
+import sensor.gps.GPSLocation;
+import sensor.task.SendSensorDataTask;
+import sensor.task.SendSimpleResultTask;
+import sensor.tools.Constant;
 
 /**
  * 通过登录或注册后，跳转到操作界面 负责添加监控用户和开始启动发送数据功能

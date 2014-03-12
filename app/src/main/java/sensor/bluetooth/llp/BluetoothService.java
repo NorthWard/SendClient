@@ -1,19 +1,18 @@
 package sensor.bluetooth.llp;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.UUID;
-
-import com.scut.sendclient.ui.TestActivity;
-
-import sensor.tools.Constant;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.UUID;
+
+import sensor.tools.Constant;
 
 /**
  * 做了修改，把时间间隔用常量代替，方便修改，如出错要修改回来

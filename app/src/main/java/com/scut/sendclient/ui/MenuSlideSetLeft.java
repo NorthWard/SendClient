@@ -1,9 +1,5 @@
 package com.scut.sendclient.ui;
 
-import java.util.concurrent.TimeUnit;
-
-import com.scut.sendclient.R;
-
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.DisplayMetrics;
@@ -13,8 +9,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
+
+import com.scut.sendclient.R;
+
+import java.util.concurrent.TimeUnit;
 
 public class MenuSlideSetLeft {
 	final String TAG = "menuSlideSet";

@@ -1,14 +1,13 @@
 package com.scut.sendclient.ui;
 
-import com.scut.sendclient.R;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
+
+import com.scut.sendclient.R;
 
 public class SplashActivity extends BaseActivity {
 	private ImageView title;

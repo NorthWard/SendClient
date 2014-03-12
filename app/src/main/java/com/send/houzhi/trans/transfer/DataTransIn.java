@@ -1,25 +1,6 @@
 package com.send.houzhi.trans.transfer;
 
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Set;
-import java.util.TreeMap;
-
-import javax.servlet.http.HttpServletResponse;
-
-
-
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ByteArrayEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-
-
-
-
 import android.util.Log;
 
 import com.send.houzhi.trans.tools.SensorDataBytes;
@@ -27,6 +8,19 @@ import com.send.houzhi.trans.tools.SensorDataBytesC;
 import com.send.houzhi.trans.tools.SensorDataBytesS;
 import com.send.houzhi.trans.tools.StaticFinalVariable;
 import com.send.houzhi.trans.tools.Transation;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ByteArrayEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Set;
+import java.util.TreeMap;
+
+import javax.servlet.http.HttpServletResponse;
 
 
 public class DataTransIn {

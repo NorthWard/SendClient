@@ -1,8 +1,6 @@
 package sensor.tools;
 
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.util.*;
+import android.util.Log;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -12,7 +10,11 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
-import android.util.Log;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 通过Http协议发送带文件或不带文件的请求的工具类

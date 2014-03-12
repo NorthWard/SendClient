@@ -1,19 +1,8 @@
 package com.scut.sendclient.ui;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import sensor.main.MainActivity;
-import sensor.tools.Constant;
-import sensor.tools.HttpUploadUtil;
-
-import com.scut.sendclient.R;
-
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,6 +11,14 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.scut.sendclient.R;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import sensor.tools.Constant;
+import sensor.tools.HttpUploadUtil;
 
 public class SetActivity extends BaseActivity {
 

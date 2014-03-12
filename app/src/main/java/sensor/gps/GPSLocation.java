@@ -5,13 +5,6 @@
 package sensor.gps;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-
-import android.os.Bundle;
-import android.provider.Settings;
-import android.util.Log;
-import android.widget.Toast;
 
 public class GPSLocation{
 	private static final long PREC_MOV_DIGTIPLY = (long) Math.pow(10, 14);

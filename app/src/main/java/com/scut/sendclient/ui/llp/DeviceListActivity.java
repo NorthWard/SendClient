@@ -1,12 +1,5 @@
 package com.scut.sendclient.ui.llp;
 
-import java.util.Set;
-
-import sensor.tools.Constant;
-
-import com.scut.sendclient.R;
-
-
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -16,14 +9,20 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
+
+import com.scut.sendclient.R;
+
+import java.util.Set;
+
+import sensor.tools.Constant;
 
 /**
  * 显示设备列表

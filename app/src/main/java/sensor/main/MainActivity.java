@@ -1,15 +1,5 @@
 package sensor.main;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import com.scut.sendclient.R;
-import com.scut.sendclient.ui.TestActivity;
-
-
-import sensor.tools.Constant;
-import sensor.tools.HttpUploadUtil;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -25,6 +15,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.scut.sendclient.R;
+import com.scut.sendclient.ui.TestActivity;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import sensor.tools.Constant;
+import sensor.tools.HttpUploadUtil;
 
 /**
  * 整个程序的入口类，有登录、注册、退出功能

@@ -1,38 +1,21 @@
 package com.scut.sendclient.ui;
 
 
-
-import java.util.ArrayList;
-
-import sensor.analyse.selfdefine.DetectionAmplitude;
-import sensor.analyse.selfdefine.MaxNoException;
-import sensor.bluetooth.llp.BluetoothService;
-import sensor.bluetooth.llp.Utils;
-import sensor.task.SendSensorDataTask;
-import sensor.task.SendSimpleResultTask;
-import sensor.tools.Constant;
-
-import com.scut.sendclient.R;
-
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.app.Activity;
 import android.app.ActivityGroup;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothSocket;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.util.Log;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.scut.sendclient.R;
+
+import sensor.bluetooth.llp.BluetoothService;
+import sensor.tools.Constant;
 
 public class MainActivity extends ActivityGroup implements View.OnClickListener{
 	RelativeLayout content ;
