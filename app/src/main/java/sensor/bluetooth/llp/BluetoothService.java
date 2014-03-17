@@ -64,6 +64,12 @@ public class BluetoothService {
 		
 		public void setModeApdu(int i) {
 			switch(i){
+				// ModeApdu meaning:
+				// 20 05 50: prefix
+				// 1: no AHRS, no RFU0, calibrated data, with ACC
+				// F: with GYRO, with MAG, with PRESS, with TEMP
+				// xx: setting FQ and USB output interface
+				// 0000: continuous mode
 			case 0:
 				sleep_time =1000;
 				modeApdu="2005501f000000";
@@ -248,25 +254,21 @@ public class BluetoothService {
 		}
 
 		public void run() {
-			int bytes;
+			int num_byte;
 			byte[] bufferOld = new byte[27];
 			while (flag) {
 				try {
 					//从流mmInStream 中获取数据,
-					System.out.println("get data");
-					bytes = mmInStream.read(bufferOld);
-					System.out.println("get data:\n"+Utils.bytes2HexString(bufferOld));
-					if(bytes>=27){
-
+					// System.out.println("get data");
+					num_byte = mmInStream.read(bufferOld);
+					// System.out.println("get data:\n"+Utils.bytes2HexString(bufferOld));
+					if(num_byte>=27){
 						String s = Utils.bytes2HexString(bufferOld);
 						if(s.substring(0, 6).equals("401952")){
-							byte[] buffer = new byte[bytes];
-							for (int i = 0; i < bytes; i++) {
-								buffer[i] = bufferOld[i];
-//								System.out.println(buffer[i]);
-							}
+							byte[] buffer = bufferOld.clone();
 							//把后台消息发送给UI 再进行传送
-							mhandler.obtainMessage(Constant.MESSAGE_READ, bytes,
+							// 数据是通过HTTP协议发送的
+							mhandler.obtainMessage(Constant.MESSAGE_READ, num_byte,
 									-1, buffer).sendToTarget();
 						}
 					}
