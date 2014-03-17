@@ -10,6 +10,7 @@ import com.send.houzhi.trans.tools.Transation;
 import com.send.houzhi.trans.transfer.DataTransIn;
 import com.send.houzhi.trans.transfer.DigitException;
 
+import sensor.bluetooth.llp.BluetoothService;
 import sensor.gps.GPSLocation;
 import sensor.tools.Constant;
 

@@ -61,72 +61,75 @@ public class RunActivity extends BaseActivity {
 
 	private boolean isCountAvg = false;
 
-	private final Handler handler = new Handler() {
+	private final Handler handler = new Handler( ){
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+				case Constant.SEND_SENSOR_FAIL:
+					Toast.makeText(RunActivity.this, "发送数据失败", Toast.LENGTH_SHORT)
+							.show();
+					break;
+				default:
+			}
+		}
+	};
+
+	private final BluetoothService.BTDataHandler BTHandler = new BluetoothService.BTDataHandler() {
 		ArrayList<Long> list = new ArrayList<Long>();
 		int count = 0;
 
 		@Override
-		public void handleMessage(Message msg) {
-			switch (msg.what) {
-			case Constant.MESSAGE_READ:
-				System.out.println("read");
-				byte[] readBuf = (byte[]) msg.obj;
-				String readMessage = Utils.bytes2HexString(readBuf);
-				System.out.println("read:\n" + readMessage);
-				if (readMessage.length() == 54) {
-					count = count + 1;
+		public void runHandler(byte[] btData) {
+			System.out.println("read");
+			String readMessage = Utils.bytes2HexString(btData);
+			System.out.println("read:\n" + readMessage);
+			if (readMessage.length() == 54) {
+				count = count + 1;
 
-					if (count % analysis_rate == 0) {
-						list.add((long) Utils.convert2Short(readMessage, 10));
-						list.add((long) Utils
-								.convert2Short(readMessage, 10 + 4));
-						list.add((long) Utils.convert2Short(readMessage,
-								10 + 4 * 2));
-						list.add((long) Utils.convert2Short(readMessage,
-								10 + 4 * 3));
-						list.add((long) Utils.convert2Short(readMessage,
-								10 + 4 * 4));
-						list.add((long) Utils.convert2Short(readMessage,
-								10 + 4 * 5));
-						list.add((long) Utils.convert2Short(readMessage,
-								10 + 4 * 6));
-						list.add((long) Utils.convert2Short(readMessage,
-								10 + 4 * 7));
-						list.add((long) Utils.convert2Short(readMessage,
-								10 + 4 * 8));
-						if (analysis_rate > send_rate)
-							count = 0;
-						// 做你们想做的分析工作
-						for (Long l : list) {
-							Log.i("test", l + "");
-						}
-						if (!isCountAvg)
-							detection.doDectecting(list);
-						else
-							detection.addSetAvg(list);
-						sendResult.setMsg(resultRes);
-						executorService.execute(sendResult);
-						list.clear();
+				if (count % analysis_rate == 0) {
+					list.add((long) Utils.convert2Short(readMessage, 10));
+					list.add((long) Utils
+							.convert2Short(readMessage, 10 + 4));
+					list.add((long) Utils.convert2Short(readMessage,
+							10 + 4 * 2));
+					list.add((long) Utils.convert2Short(readMessage,
+							10 + 4 * 3));
+					list.add((long) Utils.convert2Short(readMessage,
+							10 + 4 * 4));
+					list.add((long) Utils.convert2Short(readMessage,
+							10 + 4 * 5));
+					list.add((long) Utils.convert2Short(readMessage,
+							10 + 4 * 6));
+					list.add((long) Utils.convert2Short(readMessage,
+							10 + 4 * 7));
+					list.add((long) Utils.convert2Short(readMessage,
+							10 + 4 * 8));
+					if (analysis_rate > send_rate)
+						count = 0;
+					// 做你们想做的分析工作
+					for (Long l : list) {
+						Log.i("test", l + "");
 					}
-					// 发送数据
-					if (count % send_rate == 0) {
-						if (analysis_rate < send_rate)
-							count = 0;
-						byte temp[] = new byte[readBuf.length];
-						for (int i = 0; i != temp.length; ++i) {
-							temp[i] = readBuf[i];
-						}
-						System.out.println("??" + temp[0]);
-						send.setByte(temp);
-						executorService.execute(send);
-					}
+					if (!isCountAvg)
+						detection.doDectecting(list);
+					else
+						detection.addSetAvg(list);
+					sendResult.setMsg(resultRes);
+					executorService.execute(sendResult);
+					list.clear();
 				}
-				break;
-			case Constant.SEND_SENSOR_FAIL:
-				Toast.makeText(RunActivity.this, "发送数据失败", Toast.LENGTH_SHORT)
-						.show();
-				break;
-			default:
+				// 发送数据
+				if (count % send_rate == 0) {
+					if (analysis_rate < send_rate)
+						count = 0;
+					byte temp[] = new byte[btData.length];
+					for (int i = 0; i != temp.length; ++i) {
+						temp[i] = btData[i];
+					}
+					System.out.println("??" + temp[0]);
+					send.setByte(temp);
+					executorService.execute(send);
+				}
 			}
 		}
 	};
@@ -231,7 +234,7 @@ public class RunActivity extends BaseActivity {
 		sendResult = new SendSimpleResultTask(handler);
 
 		btAdapter = BluetoothAdapter.getDefaultAdapter();
-		btService = BluetoothService.getInstance(this, handler);
+		btService = BluetoothService.getInstance(this, BTHandler);
 		if (btAdapter == null) {
 			Toast.makeText(this, "蓝牙不可用", Toast.LENGTH_LONG).show();
 			finish();

@@ -57,7 +57,7 @@ public class MainActivity extends ActivityGroup implements View.OnClickListener{
 		// TODO Auto-generated method stub
 		switch(v.getId()){
 		case R.id.test:
-			launchActivity(TAG_TEST, TestActivity.class,R.string.title_test);
+			//launchActivity(TAG_TEST, TestActivity.class,R.string.title_test);
 			break;
 		case R.id.set:
 			launchActivity("set", SetActivity.class,R.string.title_set);
@@ -91,7 +91,7 @@ public class MainActivity extends ActivityGroup implements View.OnClickListener{
 		address =sp.getString(Constant.EXTRA_DEVICE_ADDRESS, null);
 		if(address==null){
 			//启动到设置界面
-			launchActivity(TAG_TEST, TestActivity.class,R.string.title_test);
+			// launchActivity(TAG_TEST, TestActivity.class,R.string.title_test);
 		}else{
 			launchActivity("run", RunActivity.class,R.string.title_run);
 		}

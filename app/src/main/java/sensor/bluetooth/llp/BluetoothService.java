@@ -5,6 +5,7 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
 import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 
 import java.io.IOException;
@@ -20,15 +21,19 @@ import sensor.tools.Constant;
  */
 public class BluetoothService {
 
+	public interface BTDataHandler
+	{
+		public void runHandler(byte[] btData);
+	}
 	static final UUID SPP_UUID = UUID
 			.fromString("00001101-0000-1000-8000-00805F9B34FB");
-	Handler mhandler;
+	BTDataHandler mhandler;
 	private final BluetoothAdapter mAdapter;
 	private ConnectedThread connectedThread;
 	private ConnectThread connectThread;
 	private static boolean flag = false;
 
-	private BluetoothService(Context context, Handler handler) {
+	private BluetoothService(Context context, BTDataHandler handler) {
 		mhandler = handler;
 		mAdapter = BluetoothAdapter.getDefaultAdapter();
 	}
@@ -39,7 +44,7 @@ public class BluetoothService {
 		return instance==null;
 	}
 	
-	public static BluetoothService getInstance(Context context,Handler handler){
+	public static BluetoothService getInstance(Context context, BTDataHandler handler){
 		if(instance==null){
 			instance = new BluetoothService(context, handler);
 		}
@@ -268,8 +273,7 @@ public class BluetoothService {
 							byte[] buffer = bufferOld.clone();
 							//把后台消息发送给UI 再进行传送
 							// 数据是通过HTTP协议发送的
-							mhandler.obtainMessage(Constant.MESSAGE_READ, num_byte,
-									-1, buffer).sendToTarget();
+							mhandler.runHandler(buffer);
 						}
 					}
 

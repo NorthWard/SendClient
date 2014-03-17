@@ -17,7 +17,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.scut.sendclient.R;
-import com.scut.sendclient.ui.TestActivity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -88,10 +87,10 @@ public class MainActivity extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				Intent intent=new Intent();
-				intent.setClass(MainActivity.this, TestActivity.class);
-				startActivity(intent);
-				MainActivity.this.finish();
+//				Intent intent=new Intent();
+//				intent.setClass(MainActivity.this, TestActivity.class);
+//				startActivity(intent);
+//				MainActivity.this.finish();
 			}
 		});
 		
@@ -244,10 +243,10 @@ public class MainActivity extends Activity
 					if(msgStr.equals("登录成功") || msgStr.equals("注册成功"))
 					{
 						//跳转
-						Intent intent=new Intent();
-						intent.setClass(MainActivity.this, TestActivity.class);
-						startActivity(intent);
-						MainActivity.this.finish();
+//						Intent intent=new Intent();
+//						intent.setClass(MainActivity.this, TestActivity.class);
+//						startActivity(intent);
+//						MainActivity.this.finish();
 					}
 				} catch(Exception e){
 					e.printStackTrace();
